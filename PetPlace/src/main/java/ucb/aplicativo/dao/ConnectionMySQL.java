@@ -4,10 +4,41 @@
  */
 package ucb.aplicativo.dao;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.DriverManager;
+
 /**
  *
  * @author JOAO
  */
-public class ConnectionMySQL {
-    
+public class ConnectionMySQL implements ConnectionBD {
+
+    private static final String URL = "jdbc:mysql://localhost:3306/petplace\"";
+    private static final String USUARIO = "Root";
+    private static final String SENHA = "...";
+
+    @Override
+    public Connection obterConexao () throws Exception {
+        try {
+            return DriverManager.getConnection(URL, USUARIO, SENHA);
+        } catch (SQLException error) {
+            System.err.println("Erro ao obter conexão com BD");
+            error.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public void fecharConexao(Connection conexao) {
+        if (conexao != null){
+            try {
+                conexao.close();
+            } catch (SQLException erro) {
+                System.out.println("Erro ao fechar conexão");
+                erro.printStackTrace();
+            }
+
+        }
+    }
 }
