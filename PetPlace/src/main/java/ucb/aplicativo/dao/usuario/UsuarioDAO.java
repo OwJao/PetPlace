@@ -1,22 +1,23 @@
-// Em: ucb.aplicativo.dao.UsuarioDAO.java
-package ucb.aplicativo.dao;
+package ucb.aplicativo.dao.usuario;
 
+import ucb.aplicativo.model.Usuario;
 import java.util.List;
+
 
 
 public interface UsuarioDAO {
 
-    // Criação
+    // Para Create
     void salvar(Usuario usuario) throws Exception;
 
-    // Para leitura
+    // Para Read
     Usuario buscarPorEmail(String email) throws Exception;
     Usuario buscarPorId(Long id) throws Exception; // Alterado para Long
     List<Usuario> listarTodos() throws Exception;
 
-    // Update
+    // Para Update
     void atualizar(Usuario usuario) throws Exception;
 
-    // Para Deletar
+    // Para Delete
     void deletar(Long id) throws Exception;
 }

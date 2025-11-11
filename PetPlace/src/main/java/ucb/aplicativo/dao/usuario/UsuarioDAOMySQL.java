@@ -1,6 +1,9 @@
-package ucb.aplicativo.dao;
+package ucb.aplicativo.dao.usuario;
 
-import java.sql.*; // Importar tudo de sql
+import ucb.aplicativo.model.Usuario;
+import ucb.aplicativo.dao.ConnectionBD;
+import ucb.aplicativo.dao.ConnectionMySQL;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
