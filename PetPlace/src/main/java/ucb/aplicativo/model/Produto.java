@@ -8,111 +8,112 @@ package ucb.aplicativo.model;
  *
  * @author JOAO
  */
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Produto {
-    
-    private Long id;
+
+    private Long idProduto;
     private String nome;
-    private String descricaoProduto;
+    private String descricao;
     private BigDecimal preco;
     private Integer quantidadeEstoque;
-    private String categoria;
+    private Long idFornecedor;
     private LocalDateTime dataCadastro;
-    
-    // Construtor Padrão
+
+    // Construtor padrão
     public Produto() {
-        this.dataCadastro = LocalDateTime.now(); // Define a data de criação/cadastro
-    }
-    
-    // Construtor para Adicionar Novo Produto
-    public Produto(String nome, String descricaoProduto, BigDecimal preco, Integer quantidadeEstoque, String categoria) {
-        this.nome = nome;
-        this.descricaoProduto = descricaoProduto;
-        this.preco = preco;
-        this.quantidadeEstoque = quantidadeEstoque;
-        this.categoria = categoria;
         this.dataCadastro = LocalDateTime.now();
     }
-    
-    // Construtor Completo
-    public Produto(Long id, String nome, String descricaoProduto, BigDecimal preco, Integer quantidadeEstoque, String categoria, LocalDateTime dataCadastro) {
-        this.id = id;
+
+    // Construtor para adicionar novo produto
+    public Produto(String nome, String descricao, BigDecimal preco, Integer quantidadeEstoque, Long idFornecedor) {
         this.nome = nome;
-        this.descricaoProduto = descricaoProduto;
+        this.descricao = descricao;
         this.preco = preco;
         this.quantidadeEstoque = quantidadeEstoque;
-        this.categoria = categoria;
+        this.idFornecedor = idFornecedor;
+        this.dataCadastro = LocalDateTime.now();
+    }
+
+    // Construtor completo
+    public Produto(Long idProduto, String nome, String descricao, BigDecimal preco, Integer quantidadeEstoque, Long idFornecedor, LocalDateTime dataCadastro) {
+        this.idProduto = idProduto;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.idFornecedor = idFornecedor;
         this.dataCadastro = dataCadastro;
     }
-    //  Métodos Getters e Setters
-    
-    //ID
-    public Long getId(){ 
-        return id; 
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    // Nome
-    public String getNome() { 
-        return nome; 
-    }
-    public void setNome(String nome) { 
-        this.nome = nome; 
+
+    // Getters e Setters
+    public Long getIdProduto() {
+        return idProduto;
     }
 
-    // Descricao do Produto
-    public String getDescricaoProduto() {
-        return descricaoProduto; 
-    }
-    public void setDescricaoProduto(String descricaoProduto) {
-        this.descricaoProduto = descricaoProduto; 
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
     }
 
-    // Preco
-    public BigDecimal getPreco() { 
-        return preco; 
+    public String getNome() {
+        return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 
-    // Quantidade em Estoque
     public Integer getQuantidadeEstoque() {
-        return quantidadeEstoque; 
+        return quantidadeEstoque;
     }
+
     public void setQuantidadeEstoque(Integer quantidadeEstoque) {
-        this.quantidadeEstoque = quantidadeEstoque; 
+        this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    // Categoria
-    public String getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(String categoria) {
-        this.categoria = categoria; 
+    public Long getIdFornecedor() {
+        return idFornecedor;
     }
 
-    // Data de Cadastro
+    public void setIdFornecedor(Long idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
+
     public LocalDateTime getDataCadastro() {
-        return dataCadastro; }
-    // Opcional: setar a data de cadastro manualmente
-    public void setDataCadastro(LocalDateTime dataCadastro) {
-        this.dataCadastro = dataCadastro; 
+        return dataCadastro;
     }
-    
+
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
     @Override
     public String toString() {
         return "Produto {" +
-                "id=" + id +
+                "idProduto=" + idProduto +
                 ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
-                ", estoque=" + quantidadeEstoque +
-                ", categoria='" + categoria + '\'' +
+                ", quantidadeEstoque=" + quantidadeEstoque +
+                ", idFornecedor=" + idFornecedor +
                 ", dataCadastro=" + dataCadastro +
                 '}';
     }

@@ -8,25 +8,27 @@ package ucb.aplicativo.model;
  *
  * @author Usuário
  */
-public class Usuario {
-    private Long id;
-    private String nome;
-    private String email;
-    private String senha;
-    private String tipoUsuario;
+
+public abstract class Usuario {
     
-    // Construtor Padrão
+    protected Long id;
+    protected String nome;
+    protected String email;
+    protected String senha;
+    protected String tipoUsuario;
+    
+    // Construtor padrão
     public Usuario() {}
-    
-    // Construtor para Novo Usuário
-    public Usuario(String nome, String email, String senha) {
+
+    // Construtor para novos usuários (geralmente usado pelas subclasses)
+    public Usuario(String nome, String email, String senha, String tipoUsuario) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.tipoUsuario = "CLIENTE"; // Padrão
+        this.tipoUsuario = tipoUsuario;
     }
-    
-    // Construtor Completo
+
+    // Construtor completo
     public Usuario(Long id, String nome, String email, String senha, String tipoUsuario) {
         this.id = id;
         this.nome = nome;
@@ -34,43 +36,46 @@ public class Usuario {
         this.senha = senha;
         this.tipoUsuario = tipoUsuario;
     }
-    
-    //Métodos Getters e Setters
+
+    // Getters e Setters
     public Long getId() { 
         return id;
     }
-    public void setId(Long id) {
+    public void setId(Long id) { 
         this.id = id;
     }
 
     public String getNome() { 
         return nome;
     }
-    public void setNome(String nome) {
-        this.nome = nome; 
+    public void setNome(String nome) { 
+        this.nome = nome;
     }
 
     public String getEmail() { 
-        return email; 
+        return email;
     }
     public void setEmail(String email) { 
         this.email = email;
     }
 
     public String getSenha() { 
-        return senha; 
+        return senha;
     }
-    public void setSenha(String senha) {
-        this.senha = senha; 
+    public void setSenha(String senha) { 
+        this.senha = senha;
     }
-    
-    public String getTipoUsuario() {
+
+    public String getTipoUsuario() { 
         return tipoUsuario;
     }
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario; 
+    public void setTipoUsuario(String tipoUsuario) { 
+        this.tipoUsuario = tipoUsuario;
     }
-    
+
+    // Método abstrato — cada tipo de usuário deve exibir seu perfil de forma diferente
+    public abstract void exibirPerfil();
+
     @Override
     public String toString() {
         return "Usuario {" +
@@ -78,8 +83,6 @@ public class Usuario {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", tipoUsuario='" + tipoUsuario + '\'' +
-                // A senha não deve ser exibida
                 '}';
-}
-    
+    }
 }
