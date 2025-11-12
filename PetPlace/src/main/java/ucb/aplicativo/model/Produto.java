@@ -10,111 +10,80 @@ package ucb.aplicativo.model;
  */
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class Produto {
 
-    private Long idProduto;
-    private String nome;
-    private String descricao;
-    private BigDecimal preco;
-    private Integer quantidadeEstoque;
-    private Long idFornecedor;
-    private LocalDateTime dataCadastro;
+    private int idPRODUTO; // INT PRIMARY KEY
+    private String NOME; 
+    private String DESCRICAO;
+    private BigDecimal PRECO; 
+    private int QUANTIDADE_ESTOQUE; 
 
-    // Construtor padrão
+    /**
+     * Construtor padrão.
+     */
     public Produto() {
-        this.dataCadastro = LocalDateTime.now();
     }
 
-    // Construtor para adicionar novo produto
-    public Produto(String nome, String descricao, BigDecimal preco, Integer quantidadeEstoque, Long idFornecedor) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.quantidadeEstoque = quantidadeEstoque;
-        this.idFornecedor = idFornecedor;
-        this.dataCadastro = LocalDateTime.now();
-    }
-
-    // Construtor completo
-    public Produto(Long idProduto, String nome, String descricao, BigDecimal preco, Integer quantidadeEstoque, Long idFornecedor, LocalDateTime dataCadastro) {
-        this.idProduto = idProduto;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.quantidadeEstoque = quantidadeEstoque;
-        this.idFornecedor = idFornecedor;
-        this.dataCadastro = dataCadastro;
+   
+    public Produto(int idPRODUTO, String NOME, String DESCRICAO, BigDecimal PRECO, int QUANTIDADE_ESTOQUE) {
+        this.idPRODUTO = idPRODUTO;
+        this.NOME = NOME;
+        this.DESCRICAO = DESCRICAO;
+        this.PRECO = PRECO;
+        this.QUANTIDADE_ESTOQUE = QUANTIDADE_ESTOQUE;
     }
 
     // Getters e Setters
-    public Long getIdProduto() {
-        return idProduto;
+
+    public int getIdPRODUTO() {
+        return idPRODUTO;
     }
 
-    public void setIdProduto(Long idProduto) {
-        this.idProduto = idProduto;
+    public void setIdPRODUTO(int idPRODUTO) {
+        this.idPRODUTO = idPRODUTO;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNOME() {
+        return NOME;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDESCRICAO() {
+        return DESCRICAO;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDESCRICAO(String DESCRICAO) {
+        this.DESCRICAO = DESCRICAO;
     }
 
-    public BigDecimal getPreco() {
-        return preco;
+    public BigDecimal getPRECO() {
+        return PRECO;
     }
 
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
+    public void setPRECO(BigDecimal PRECO) {
+        this.PRECO = PRECO;
     }
 
-    public Integer getQuantidadeEstoque() {
-        return quantidadeEstoque;
+    public int getQUANTIDADE_ESTOQUE() {
+        return QUANTIDADE_ESTOQUE;
     }
 
-    public void setQuantidadeEstoque(Integer quantidadeEstoque) {
-        this.quantidadeEstoque = quantidadeEstoque;
-    }
-
-    public Long getIdFornecedor() {
-        return idFornecedor;
-    }
-
-    public void setIdFornecedor(Long idFornecedor) {
-        this.idFornecedor = idFornecedor;
-    }
-
-    public LocalDateTime getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(LocalDateTime dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setQUANTIDADE_ESTOQUE(int QUANTIDADE_ESTOQUE) {
+        this.QUANTIDADE_ESTOQUE = QUANTIDADE_ESTOQUE;
     }
 
     @Override
     public String toString() {
         return "Produto {" +
-                "idProduto=" + idProduto +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                ", quantidadeEstoque=" + quantidadeEstoque +
-                ", idFornecedor=" + idFornecedor +
-                ", dataCadastro=" + dataCadastro +
+                "idPRODUTO=" + idPRODUTO +
+                ", NOME='" + NOME + '\'' +
+                ", DESCRICAO='" + DESCRICAO + '\'' +
+                ", PRECO=" + PRECO +
+                ", QUANTIDADE_ESTOQUE=" + QUANTIDADE_ESTOQUE +
                 '}';
     }
 }

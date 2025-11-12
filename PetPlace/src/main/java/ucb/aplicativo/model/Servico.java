@@ -13,54 +13,63 @@ import java.math.BigDecimal;
 
 public class Servico {
 
-    private Long idServico;
-    private String categoria;  //BANHO OU TOSA
-    private BigDecimal preco;
+    private int idSERVICO;         // INT PRIMARY KEY
+    private BigDecimal PRECO;     
+    private int BANHO;          
+    private int TOSA;             
 
-    // Construtor padrão
     public Servico() {
-        super();
     }
 
-    // Construtor completo
-    public Servico(Long idServico, String categoria, BigDecimal preco) {
-        this.idServico = idServico;
-        this.categoria = categoria;
-        this.preco = preco;
+    public Servico(int idSERVICO, BigDecimal PRECO, int BANHO, int TOSA) {
+        this.idSERVICO = idSERVICO;
+        this.PRECO = PRECO;
+        this.BANHO = BANHO;
+        this.TOSA = TOSA;
     }
 
     // Getters e Setters
-    public Long getIdServico() {
-        return idServico;
+
+    public int getIdSERVICO() {
+        return idSERVICO;
     }
 
-    public void setIdServico(Long idServico) {
-        this.idServico = idServico;
+    public void setIdSERVICO(int idSERVICO) {
+        this.idSERVICO = idSERVICO;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public BigDecimal getPRECO() {
+        return PRECO;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setPRECO(BigDecimal PRECO) {
+        this.PRECO = PRECO;
     }
 
-    public BigDecimal getPreco() {
-        return preco;
+  
+    public int getBANHO() {
+        return BANHO;
     }
 
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
+    public void setBANHO(int BANHO) {
+        this.BANHO = BANHO;
     }
 
-    // toString
+    public int getTOSA() {
+        return TOSA;
+    }
+
+    public void setTOSA(int TOSA) {
+        this.TOSA = TOSA;
+    }
+
     @Override
     public String toString() {
-        return "Servico {" +
-                "idServico=" + idServico +
-                ", categoria='" + categoria + '\'' +
-                ", preco=" + preco +
+        return "SERVICO {" +
+                "idSERVICO=" + idSERVICO +
+                ", PRECO=" + PRECO +
+                ", BANHO=" + (BANHO == 1 ? "Sim" : "Não") +
+                ", TOSA=" + (TOSA == 1 ? "Sim" : "Não") +
                 '}';
     }
 }

@@ -11,94 +11,63 @@ package ucb.aplicativo.model;
 
 public class Fornecedor {
 
-    private Long idFornecedor;
-    private String nome;
-    private String telefone;
-    private String email;
-    private String cnpj;
-    private String endereco;
+    
+    private int idFORNECEDOR; // INT PRIMARY KEY
+    private String NOME;     
+    private String TELEFONE;  
+    private String EMAIL;     
 
-    // Construtor padrão
     public Fornecedor() {
     }
 
-    // Construtor para novo fornecedor (sem ID)
-    public Fornecedor(String nome, String telefone, String email, String cnpj, String endereco) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.cnpj = cnpj;
-        this.endereco = endereco;
-    }
-
-    // Construtor completo (com ID)
-    public Fornecedor(Long idFornecedor, String nome, String telefone, String email, String cnpj, String endereco) {
-        this.idFornecedor = idFornecedor;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.cnpj = cnpj;
-        this.endereco = endereco;
+    public Fornecedor(int idFORNECEDOR, String NOME, String TELEFONE, String EMAIL) {
+        this.idFORNECEDOR = idFORNECEDOR;
+        this.NOME = NOME;
+        this.TELEFONE = TELEFONE;
+        this.EMAIL = EMAIL;
     }
 
     // Getters e Setters
-    public Long getIdFornecedor() {
-        return idFornecedor;
+
+    public int getIdFORNECEDOR() {
+        return idFORNECEDOR;
     }
 
-    public void setIdFornecedor(Long idFornecedor) {
-        this.idFornecedor = idFornecedor;
+    public void setIdFORNECEDOR(int idFORNECEDOR) {
+        this.idFORNECEDOR = idFORNECEDOR;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNOME() {
+        return NOME;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTELEFONE() {
+        return TELEFONE;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTELEFONE(String TELEFONE) {
+        this.TELEFONE = TELEFONE;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEMAIL() {
+        return EMAIL;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
     }
 
     @Override
     public String toString() {
-        return "Fornecedor {" +
-                "idFornecedor=" + idFornecedor +
-                ", nome='" + nome + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", email='" + email + '\'' +
-                ", cnpj='" + cnpj + '\'' +
-                ", endereco='" + endereco + '\'' +
+        return "FORNECEDOR {" +
+                "idFORNECEDOR=" + idFORNECEDOR +
+                ", NOME='" + NOME + '\'' +
+                ", TELEFONE='" + TELEFONE + '\'' +
+                ", EMAIL='" + EMAIL + '\'' +
                 '}';
     }
 }

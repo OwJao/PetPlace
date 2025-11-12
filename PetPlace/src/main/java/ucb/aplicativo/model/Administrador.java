@@ -9,55 +9,70 @@ package ucb.aplicativo.model;
  * @author Usuário
  */
 
-public class Administrador extends Usuario {
+public class Administrador{
 
-    private String cargo;
-
-
-    // Construtor padrão
-    public Administrador() {
-        super();
-        this.tipoUsuario = "ADMIN";
-    }
-
-    // Construtor para novo administrador
-    public Administrador(String nome, String email, String senha, String cargo) {
-        super(nome, email, senha, "ADMIN");
-        this.cargo = cargo;
-     
-    }
-
-    // Construtor completo
-    public Administrador(Long id, String nome, String email, String senha, String cargo) {
-        super(id, nome, email, senha, "ADMIN");
-        this.cargo = cargo;
  
+    private int idADMINISTRADOR; // INT PRIMARY KEY
+    private String NOME;    
+    private String LOGIN;   
+    private String SENHA;  
+
+    public Administrador() {
+    }
+
+
+    public Administrador(int idADMINISTRADOR, String NOME, String LOGIN, String SENHA) {
+        this.idADMINISTRADOR = idADMINISTRADOR;
+        this.NOME = NOME;
+        this.LOGIN = LOGIN;
+        this.SENHA = SENHA;
     }
 
     // Getters e Setters
-    public String getCargo() {
-        return cargo;
+
+    public int getIdADMINISTRADOR() {
+        return idADMINISTRADOR;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setIdADMINISTRADOR(int idADMINISTRADOR) {
+        this.idADMINISTRADOR = idADMINISTRADOR;
     }
 
+    public String getNOME() {
+        return NOME;
+    }
+
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
+    }
+
+    public String getLOGIN() {
+        return LOGIN;
+    }
+
+    public void setLOGIN(String LOGIN) {
+        this.LOGIN = LOGIN;
+    }
+
+    public String getSENHA() {
+        return SENHA;
+    }
+
+    public void setSENHA(String SENHA) {
+        this.SENHA = SENHA;
+    }
 
     @Override
     public String toString() {
-        return "Administrador {" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", cargo='" + cargo + '\'' +
+        return "ADMINISTRADOR {" +
+                "idADMINISTRADOR=" + idADMINISTRADOR +
+                ", NOME='" + NOME + '\'' +
+                ", LOGIN='" + LOGIN + '\'' +
+             
                 '}';
     }
-
-  @Override
-public void exibirPerfil() {
-    System.out.println("Administrador: " + getNome() + " | Tipo: " + getTipoUsuario());
+    
+    public boolean autenticar(String login, String senha) {
+        return this.LOGIN.equals(login) && this.SENHA.equals(senha);
+    }
 }
-
-}
-

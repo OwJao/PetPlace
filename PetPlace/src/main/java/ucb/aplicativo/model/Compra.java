@@ -10,101 +10,94 @@ package ucb.aplicativo.model;
  */
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.sql.Date; // Usando java.sql.Date para mapear DATA_COMPRA (DATE)
 
 public class Compra {
 
-    private Long idCompra;
-    private String cpfCliente; 
-    private LocalDateTime dataCompra;
-    private BigDecimal valorTotal;
-    private String statusCompra;
-    private List<CompraProduto> itens;
+    
+    private int idCOMPRA; // INT PRIMARY KEY
+    private String CPF;
+    private Date DATA_COMPRA; 
+    private BigDecimal VALOR_TOTAL; 
+    private String idPRODUTO; 
+    private int PAGAMENTO_PIX_idPAGAMENTO_PIX; 
 
-    // Construtor padrão
+    /**
+     * Construtor padrão.
+     */
     public Compra() {
-        this.dataCompra = LocalDateTime.now();
-        this.valorTotal = BigDecimal.ZERO;
-        this.statusCompra = "ABERTA";
     }
 
-    // Construtor para nova compra
-    public Compra(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
-        this.dataCompra = LocalDateTime.now();
-        this.valorTotal = BigDecimal.ZERO;
-        this.statusCompra = "ABERTA";
-    }
-
-    // Construtor completo
-    public Compra(Long idCompra, String cpfCliente, LocalDateTime dataCompra, BigDecimal valorTotal, String statusCompra, List<CompraProduto> itens) {
-        this.idCompra = idCompra;
-        this.cpfCliente = cpfCliente;
-        this.dataCompra = dataCompra;
-        this.valorTotal = valorTotal;
-        this.statusCompra = statusCompra;
-        this.itens = itens;
+  
+    public Compra(int idCOMPRA, String CPF, Date DATA_COMPRA, BigDecimal VALOR_TOTAL, 
+                  String idPRODUTO, int PAGAMENTO_PIX_idPAGAMENTO_PIX) {
+        this.idCOMPRA = idCOMPRA;
+        this.CPF = CPF;
+        this.DATA_COMPRA = DATA_COMPRA;
+        this.VALOR_TOTAL = VALOR_TOTAL;
+        this.idPRODUTO = idPRODUTO;
+        this.PAGAMENTO_PIX_idPAGAMENTO_PIX = PAGAMENTO_PIX_idPAGAMENTO_PIX;
     }
 
     // Getters e Setters
-    public Long getIdCompra() {
-        return idCompra;
+
+    public int getIdCOMPRA() {
+        return idCOMPRA;
     }
 
-    public void setIdCompra(Long idCompra) {
-        this.idCompra = idCompra;
+    public void setIdCOMPRA(int idCOMPRA) {
+        this.idCOMPRA = idCOMPRA;
     }
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public String getCPF() {
+        return CPF;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 
-    public LocalDateTime getDataCompra() {
-        return dataCompra;
+    public Date getDATA_COMPRA() {
+        return DATA_COMPRA;
     }
 
-    public void setDataCompra(LocalDateTime dataCompra) {
-        this.dataCompra = dataCompra;
+    public void setDATA_COMPRA(Date DATA_COMPRA) {
+        this.DATA_COMPRA = DATA_COMPRA;
     }
 
-    public BigDecimal getValorTotal() {
-        return valorTotal;
+    public BigDecimal getVALOR_TOTAL() {
+        return VALOR_TOTAL;
     }
 
-    public void setValorTotal(BigDecimal valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setVALOR_TOTAL(BigDecimal VALOR_TOTAL) {
+        this.VALOR_TOTAL = VALOR_TOTAL;
     }
 
-    public String getStatusCompra() {
-        return statusCompra;
+    public String getIdPRODUTO() {
+        return idPRODUTO;
     }
 
-    public void setStatusCompra(String statusCompra) {
-        this.statusCompra = statusCompra;
+    public void setIdPRODUTO(String idPRODUTO) {
+        this.idPRODUTO = idPRODUTO;
     }
 
-    public List<CompraProduto> getItens() {
-        return itens;
+    public int getPAGAMENTO_PIX_idPAGAMENTO_PIX() {
+        return PAGAMENTO_PIX_idPAGAMENTO_PIX;
     }
 
-    public void setItens(List<CompraProduto> itens) {
-        this.itens = itens;
+    public void setPAGAMENTO_PIX_idPAGAMENTO_PIX(int PAGAMENTO_PIX_idPAGAMENTO_PIX) {
+        this.PAGAMENTO_PIX_idPAGAMENTO_PIX = PAGAMENTO_PIX_idPAGAMENTO_PIX;
     }
 
     @Override
     public String toString() {
         return "Compra {" +
-                "idCompra=" + idCompra +
-                ", cpfCliente='" + cpfCliente + '\'' +
-                ", dataCompra=" + dataCompra +
-                ", valorTotal=" + valorTotal +
-                ", statusCompra='" + statusCompra + '\'' +
-                ", itens=" + (itens != null ? itens.size() : 0) +
+                "idCOMPRA=" + idCOMPRA +
+                ", CPF='" + CPF + '\'' +
+                ", DATA_COMPRA=" + DATA_COMPRA +
+                ", VALOR_TOTAL=" + VALOR_TOTAL +
+                ", idPRODUTO='" + idPRODUTO + '\'' +
+                ", PAGAMENTO_PIX_idPAGAMENTO_PIX=" + PAGAMENTO_PIX_idPAGAMENTO_PIX +
                 '}';
     }
 }

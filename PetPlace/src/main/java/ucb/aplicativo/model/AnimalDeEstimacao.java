@@ -11,106 +11,86 @@ package ucb.aplicativo.model;
 
 public class AnimalDeEstimacao {
 
-    private Long idAnimal;
-    private String nome;
-    private String especie;
-    private String raca;
-    private Integer idade;
-    private String sexo;
-    private Long idCliente;
+  
+    private int idANIMAL_DE_ESTIMACAO; // INT PRIMARY KEY
+    private String NOME;            
+    private String RACA;            
+    private int IDADE;            
+    private String SEXO;             
+    private String CPF_CLIENTE;   
 
-    // Construtor padrão
+   
     public AnimalDeEstimacao() {
     }
 
-    // Construtor para novo animal
-    public AnimalDeEstimacao(String nome, String especie, String raca, Integer idade, String sexo, Long idCliente) {
-        this.nome = nome;
-        this.especie = especie;
-        this.raca = raca;
-        this.idade = idade;
-        this.sexo = sexo;
-        this.idCliente = idCliente;
-    }
-
-    // Construtor completo
-    public AnimalDeEstimacao(Long idAnimal, String nome, String especie, String raca, Integer idade, String sexo, Long idCliente) {
-        this.idAnimal = idAnimal;
-        this.nome = nome;
-        this.especie = especie;
-        this.raca = raca;
-        this.idade = idade;
-        this.sexo = sexo;
-        this.idCliente = idCliente;
+    public AnimalDeEstimacao(int idANIMAL_DE_ESTIMACAO, String NOME, String RACA, int IDADE, String SEXO, String CPF_CLIENTE) {
+        this.idANIMAL_DE_ESTIMACAO = idANIMAL_DE_ESTIMACAO;
+        this.NOME = NOME;
+        this.RACA = RACA;
+        this.IDADE = IDADE;
+        this.SEXO = SEXO;
+        this.CPF_CLIENTE = CPF_CLIENTE;
     }
 
     // Getters e Setters
-    public Long getIdAnimal() {
-        return idAnimal;
+
+    public int getIdANIMAL_DE_ESTIMACAO() {
+        return idANIMAL_DE_ESTIMACAO;
     }
 
-    public void setIdAnimal(Long idAnimal) {
-        this.idAnimal = idAnimal;
+    public void setIdANIMAL_DE_ESTIMACAO(int idANIMAL_DE_ESTIMACAO) {
+        this.idANIMAL_DE_ESTIMACAO = idANIMAL_DE_ESTIMACAO;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNOME() {
+        return NOME;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
     }
 
-    public String getEspecie() {
-        return especie;
+    public String getRACA() {
+        return RACA;
     }
 
-    public void setEspecie(String especie) {
-        this.especie = especie;
+    public void setRACA(String RACA) {
+        this.RACA = RACA;
     }
 
-    public String getRaca() {
-        return raca;
+    public int getIDADE() {
+        return IDADE;
     }
 
-    public void setRaca(String raca) {
-        this.raca = raca;
+    public void setIDADE(int IDADE) {
+        this.IDADE = IDADE;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public String getSEXO() {
+        return SEXO;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setSEXO(String SEXO) {
+        this.SEXO = SEXO;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getCPF_CLIENTE() {
+        return CPF_CLIENTE;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public Long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setCPF_CLIENTE(String CPF_CLIENTE) {
+        this.CPF_CLIENTE = CPF_CLIENTE;
     }
 
     @Override
     public String toString() {
-        return "AnimalDeEstimacao {" +
-                "idAnimal=" + idAnimal +
-                ", nome='" + nome + '\'' +
-                ", especie='" + especie + '\'' +
-                ", raca='" + raca + '\'' +
-                ", idade=" + idade +
-                ", sexo='" + sexo + '\'' +
-                ", idCliente=" + idCliente +
+        return "ANIMAL_DE_ESTIMACAO {" +
+                "idANIMAL_DE_ESTIMACAO=" + idANIMAL_DE_ESTIMACAO +
+                ", NOME='" + NOME + '\'' +
+                ", RACA='" + RACA + '\'' +
+                ", IDADE=" + IDADE +
+                ", SEXO='" + SEXO + '\'' +
+                ", CPF_CLIENTE='" + CPF_CLIENTE + '\'' +
                 '}';
     }
 }

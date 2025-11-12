@@ -9,47 +9,59 @@ package ucb.aplicativo.model;
  * @author Usuário
  */
 
+public class PagamentoPix {
 
-import java.math.BigDecimal;
+    private int idPAGAMENTO_PIX; // INT PRIMARY KEY
+    private String CHAVE_PIX;    
+    private int ID_COMPRA;    
 
-public class PagamentoPix extends Pagamento {
-
-    private String chavePix;
-
-    // Construtor padrão
     public PagamentoPix() {
-        super();
     }
 
-    // Construtor completo
-    public PagamentoPix(Long idPagamento, Long idPedido, BigDecimal valor, String tipo, String chavePix) {
-        super(idPagamento, idPedido, valor, tipo);
-        this.chavePix = chavePix;
+  
+    public PagamentoPix(int idPAGAMENTO_PIX, String CHAVE_PIX, int ID_COMPRA) {
+        this.idPAGAMENTO_PIX = idPAGAMENTO_PIX;
+        this.CHAVE_PIX = CHAVE_PIX;
+        this.ID_COMPRA = ID_COMPRA;
     }
 
     // Getters e Setters
-    public String getChavePix() {
-        return chavePix;
+
+    public int getIdPAGAMENTO_PIX() {
+        return idPAGAMENTO_PIX;
     }
 
-    public void setChavePix(String chavePix) {
-        this.chavePix = chavePix;
+    public void setIdPAGAMENTO_PIX(int idPAGAMENTO_PIX) {
+        this.idPAGAMENTO_PIX = idPAGAMENTO_PIX;
     }
 
-    @Override
-    public String realizarPagamento() {
-        return "Pagamento via PIX realizado com sucesso! Valor: R$" + valor +
-               " | Chave PIX: " + chavePix;
+    public String getCHAVE_PIX() {
+        return CHAVE_PIX;
+    }
+
+    public void setCHAVE_PIX(String CHAVE_PIX) {
+        this.CHAVE_PIX = CHAVE_PIX;
+    }
+
+    public int getID_COMPRA() {
+        return ID_COMPRA;
+    }
+
+    public void setID_COMPRA(int ID_COMPRA) {
+        this.ID_COMPRA = ID_COMPRA;
     }
 
     @Override
     public String toString() {
         return "PagamentoPix {" +
-                "idPagamento=" + idPagamento +
-                ", idPedido=" + idPedido +
-                ", valor=" + valor +
-                ", chavePix='" + chavePix + '\'' +
+                "idPAGAMENTO_PIX=" + idPAGAMENTO_PIX +
+                ", CHAVE_PIX='" + CHAVE_PIX + '\'' +
+                ", ID_COMPRA=" + ID_COMPRA +
                 '}';
     }
+    
+   
+    public String realizarTransacao() {
+        return "Transação PIX concluída para a Compra ID: " + ID_COMPRA;
+    }
 }
-
