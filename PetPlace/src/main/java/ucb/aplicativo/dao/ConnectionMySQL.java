@@ -14,12 +14,12 @@ import java.sql.DriverManager;
  */
 public class ConnectionMySQL implements ConnectionBD {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/petplace\"";
-    private static final String USUARIO = "Root";
-    private static final String SENHA = "...";
+    private static final String URL = "jdbc:mysql://localhost:3306/petshop";
+    private static final String USUARIO = "root";
+    private static final String SENHA = "";
 
     @Override
-    public Connection obterConexao () throws Exception {
+    public Connection obterConexao() throws Exception {
         try {
             return DriverManager.getConnection(URL, USUARIO, SENHA);
         } catch (SQLException error) {

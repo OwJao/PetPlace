@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoDAOMySQL implements ProdutoDAO {
-    private ConnectionBD fabricaDeConexao;
+    private final ConnectionBD fabricaDeConexao;
 
     public ProdutoDAOMySQL() {
         this.fabricaDeConexao = new ConnectionMySQL();
@@ -17,19 +17,20 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
     @Override
     public void salvar(Produto produto) throws Exception {
 
-        String sql = "INSERT INTO produto (nome, descricao, preco, estoque) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO PRODUTO (NOME, DESCRICAO, PRECO, QUANTIDADE_ESTOQUE) VALUES (?, ?, ?, ?)";
         try (Connection conexao = fabricaDeConexao.obterConexao();
              PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setString(1, produto.getNome());
-            stmt.setBigDecimal(3, produto.getPreco());
-            stmt.setInt(4, produto.getQuantidadeEstoque());
+            stmt.setString(1, produto.getNOME());
+            stmt.setString(2, produto.getDESCRICAO());
+            stmt.setBigDecimal(3, produto.getPRECO());
+            stmt.setInt(4, produto.getQUANTIDADE_ESTOQUE());
 
             stmt.executeUpdate();
 
             try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
-                    produto.setId(rs.getLong(1));
+                    produto.setIdPRODUTO((int) rs.getInt(1));
                 }
             }
         } catch (SQLException e) {
@@ -38,13 +39,13 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
     }
 
     @Override
-    public Produto buscarPorId(Long id) throws Exception {
-        String sql = "SELECT * FROM produto WHERE id = ?";
+    public Produto buscarPorId(int id) throws Exception {
+        String sql = "SELECT * FROM produto WHERE idPRODUTO = ?";
 
         try (Connection conexao = fabricaDeConexao.obterConexao();
              PreparedStatement stmt = conexao.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -60,7 +61,7 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
 
     @Override
     public List<Produto> buscarPorNome(String nome) throws Exception {
-        String sql = "SELECT * FROM produto WHERE nome LIKE ?";
+        String sql = "SELECT * FROM PRODUTO WHERE NOME LIKE ?";
         List<Produto> lista = new ArrayList<>();
 
         try (Connection conexao = fabricaDeConexao.obterConexao();
@@ -100,15 +101,16 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
 
     @Override
     public void atualizar(Produto produto) throws Exception {
-        String sql = "UPDATE produto SET nome = ?, descricao = ?, preco = ?, estoque = ? WHERE id = ?";
+        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ?, PRECO = ?, QUANTIDADE_ESTOQUE = ? WHERE idPRODUTO = ?";
 
         try (Connection conexao = fabricaDeConexao.obterConexao();
              PreparedStatement stmt = conexao.prepareStatement(sql)) {
 
-            stmt.setString(1, produto.getNome());
-            stmt.setBigDecimal(3, produto.getPreco());
-            stmt.setInt(4, produto.getQuantidadeEstoque());
-            stmt.setLong(5, produto.getId());
+            stmt.setString(1, produto.getNOME());
+            stmt.setString(2, produto.getDESCRICAO());
+            stmt.setBigDecimal(3, produto.getPRECO());
+            stmt.setInt(4, produto.getQUANTIDADE_ESTOQUE());
+            stmt.setInt(5, produto.getIdPRODUTO());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -116,13 +118,13 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
         }
     }
     @Override
-    public void deletar(Long id) throws Exception {
-        String sql = "DELETE FROM produto WHERE id = ?";
+    public void deletar(int id) throws Exception {
+        String sql = "DELETE FROM PRODUTO WHERE idPRODUTO = ?";
 
         try (Connection conexao = fabricaDeConexao.obterConexao();
              PreparedStatement stmt = conexao.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -133,10 +135,11 @@ public class ProdutoDAOMySQL implements ProdutoDAO {
     private Produto buildProduto(ResultSet rs) throws SQLException {
         Produto produto = new Produto();
 
-        produto.setId(rs.getLong("id"));
-        produto.setNome(rs.getString("nome"));
-        produto.setPreco(rs.getBigDecimal("preco"));
-        produto.setQuantidadeEstoque(rs.getInt("estoque"));
+        produto.setIdPRODUTO(rs.getInt("idPRODUTO"));
+        produto.setNOME(rs.getString("NOME"));
+        produto.setDESCRICAO(rs.getString("DESCRICAO"));
+        produto.setPRECO(rs.getBigDecimal("PRECO"));
+        produto.setQUANTIDADE_ESTOQUE(rs.getInt("QUANTIDADE_ESTOQUE"));
 
         return produto;
     }

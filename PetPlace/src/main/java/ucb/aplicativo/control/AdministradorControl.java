@@ -17,7 +17,7 @@ import java.util.List;
 
 public class AdministradorControl {
 
-    private AdministradorDAO administradorDAO;
+    private final AdministradorDAO administradorDAO;
 
     public AdministradorControl() {
         this.administradorDAO = new AdministradorDAOMySQL();
@@ -54,13 +54,22 @@ public class AdministradorControl {
     }
 
     public Administrador login(String login, String senha) throws Exception {
-        if (login == null || login.isEmpty() || senha == null || senha.isEmpty()) {
-            throw new Exception("Login e senha são obrigatórios.");
+        if (login == null || login.trim().isEmpty()) {
+            throw new Exception("Login é obrigatório.");
+        }
+    
+        // Se senha for null, converte para string vazia
+        if (senha == null) {
+            senha = "";
         }
 
         Administrador admin = administradorDAO.buscarPorLogin(login);
-        if (admin == null || !admin.getSENHA().equals(senha)) {
-            throw new Exception("Login ou senha incorretos.");
+        if (admin == null) {
+            throw new Exception("Usuário não encontrado.");
+        }
+
+        if (!admin.getSENHA().equals(senha)) {
+            throw new Exception("Senha incorreta.");
         }
 
         return admin;

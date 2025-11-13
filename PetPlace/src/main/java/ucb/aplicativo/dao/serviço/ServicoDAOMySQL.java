@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ServicoDAOMySQL implements ServicoDAO {
 
-    private ConnectionBD fabricaDeConexao;
+    private final ConnectionBD fabricaDeConexao;
 
     public ServicoDAOMySQL() {
         this.fabricaDeConexao = new ConnectionMySQL();

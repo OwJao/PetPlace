@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CompraDAOMySQL implements CompraDAO {
 
-    private ConnectionBD fabricaDeConexao;
+    private final ConnectionBD fabricaDeConexao;
 
     public CompraDAOMySQL() {
         this.fabricaDeConexao = new ConnectionMySQL();
@@ -18,8 +18,7 @@ public class CompraDAOMySQL implements CompraDAO {
     // create da compra
     @Override
     public void salvar(Compra compra) throws Exception {
-        String sql = "INSERT INTO COMPRA (CPF, DATA_COMPRA, VALOR_TOTAL, idPRODUTO, PAGAMENTO_PIX_idPAGAMENTO_PIX) " +
-                "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO COMPRA (CPF, DATA_COMPRA, VALOR_TOTAL, idPRODUTO, PAGAMENTO_PIX_idPAGAMENTO_PIX) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conexao = fabricaDeConexao.obterConexao();
              PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {

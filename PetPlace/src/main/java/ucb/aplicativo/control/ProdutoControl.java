@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ProdutoControl {
 
-    private ProdutoDAO produtoDAO;
+    private final ProdutoDAO produtoDAO;
 
     public ProdutoControl() {
         this.produtoDAO = new ProdutoDAOMySQL();
@@ -33,7 +33,7 @@ public class ProdutoControl {
         produtoDAO.salvar(produto);
     }
 
-    public Produto buscarPorId(Long id) throws Exception {
+    public Produto buscarPorId(int id) throws Exception {
         Produto produto = produtoDAO.buscarPorId(id);
         if (produto == null) {
             throw new Exception("Produto não encontrado.");
@@ -52,7 +52,7 @@ public class ProdutoControl {
         produtoDAO.atualizar(produto);
     }
 
-    public void deletarProduto(Long id) throws Exception {
+    public void deletarProduto(int id) throws Exception {
         produtoDAO.deletar(id);
     }
 }

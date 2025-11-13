@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FornecedorDAOMySQL implements FornecedorDAO {
 
-    private ConnectionBD fabricaDeConexao;
+    private final ConnectionBD fabricaDeConexao;
 
     public FornecedorDAOMySQL() {
         this.fabricaDeConexao = new ConnectionMySQL();

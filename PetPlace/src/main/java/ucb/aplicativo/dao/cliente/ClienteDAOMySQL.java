@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClienteDAOMySQL implements ClienteDAO {
 
-    private ConnectionBD fabricaDeConexao;
+    private final ConnectionBD fabricaDeConexao;
 
     public ClienteDAOMySQL() {
         this.fabricaDeConexao = new ConnectionMySQL();

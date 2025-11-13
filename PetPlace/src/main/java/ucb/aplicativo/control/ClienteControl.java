@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClienteControl {
 
-    private ClienteDAO clienteDAO;
+    private final ClienteDAO clienteDAO;
 
     public ClienteControl() {
         this.clienteDAO = new ClienteDAOMySQL();

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AdministradorDAOMySQL implements AdministradorDAO {
 
-    private ConnectionBD fabricaDeConexao;
+    private final ConnectionBD fabricaDeConexao;
 
     public AdministradorDAOMySQL() {
         this.fabricaDeConexao = new ConnectionMySQL();

@@ -1,6 +1,4 @@
 package ucb.aplicativo.dao.compra;
-import ucb.aplicativo.dao.ConnectionMySQL;
-import ucb.aplicativo.dao.ConnectionBD;
 
 import ucb.aplicativo.model.Compra;
 import java.util.List;

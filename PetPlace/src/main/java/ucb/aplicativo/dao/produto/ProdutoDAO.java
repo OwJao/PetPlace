@@ -11,7 +11,7 @@ public interface ProdutoDAO {
 
 
     // Ler
-    Produto buscarPorId(Long id) throws Exception;
+    Produto buscarPorId(int id) throws Exception;
     List<Produto> buscarPorNome(String nome) throws Exception;
     List<Produto> listarTodos() throws Exception;
 
@@ -19,5 +19,5 @@ public interface ProdutoDAO {
     void atualizar(Produto produto) throws Exception;
 
     // Deletar
-    void deletar(Long id) throws Exception;
+    void deletar(int id) throws Exception;
 }
